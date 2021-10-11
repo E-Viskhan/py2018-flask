@@ -1,0 +1,4 @@
+ROUTES = {
+    'home': '/',
+    'contacts': '/contacts'
+}

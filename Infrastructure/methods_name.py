@@ -1,0 +1,11 @@
+POST = ['POST']
+
+GET = ['GET']
+
+DELETE = ['DELETE']
+
+PUT = ['PUT']
+
+PATCH = ['PATCH']
+
+ALL_METHODS = [POST, GET, DELETE, PUT, PATCH]
