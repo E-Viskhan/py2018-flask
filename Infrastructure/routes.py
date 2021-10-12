@@ -1,4 +1,4 @@
-ROUTES = {
+routes = {
     'home': '/',
     'contacts': '/contacts'
 }

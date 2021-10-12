@@ -8,4 +8,4 @@ PUT = ['PUT']
 
 PATCH = ['PATCH']
 
-ALL_METHODS = [POST, GET, DELETE, PUT, PATCH]
+ALL_METHODS = [val[0] for val in [POST, GET, DELETE, PUT, PATCH]]

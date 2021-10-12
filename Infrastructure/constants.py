@@ -4,6 +4,8 @@ app = Flask(__name__)
 
 DATABASE = 'database.sqlite'
 
+path_schema = 'db\\schema.sql'
+
 
 def build_path_with_args(route_name: str, *args):
     """
@@ -18,7 +20,6 @@ def build_path_with_args(route_name: str, *args):
     if args_len != 0:
 
         if args_len == 1:
-            print(f'{route_name}/{args[0]}')
             return f'{route_name}/{args[0]}'
         else:
             _str = f'{route_name}'

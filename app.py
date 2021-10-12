@@ -1,7 +1,7 @@
 from flask import jsonify
 
 from Infrastructure.constants import app
-from Infrastructure.routes import ROUTES as routes
+from Infrastructure.routes import routes
 from Infrastructure.inits import init_urls
 from Data import database as db
 

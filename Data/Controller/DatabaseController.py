@@ -1,26 +1,27 @@
 from Data.database import query_db, mutate_db
 
 
-def build_create(table, columns, request):
+def build_create(table, columns, data):
     def create():
-        data = [request.form[key] for key in columns]
-        marks = ', '.join(['?' for _ in columns])
+        values = ', '.join(['?' for _ in columns])
         names = ', '.join([name for name in columns])
-        id = mutate_db(f"INSERT INTO {table}({names}) VALUES({marks})", data)
+        query = f"INSERT INTO {table}({names}) VALUES({values})"
+        id = mutate_db(query, data)
+
         return {"id": id}
 
-    return create
+    return create()
 
 
-def build_get_all(table, columns, request):
+def build_get_all(table):
     def get_all():
         items = query_db(f'SELECT * FROM {table}')
         return {"data": items}
 
-    return get_all
+    return get_all()
 
 
-def build_get_by_id(table, columns, request):
+def build_get_by_id(table):
     def get_by_id(id):
         item = query_db(f'SELECT * FROM {table} WHERE id = ?', (id,), one=True)
         return {"data": item}

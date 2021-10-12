@@ -1,16 +1,22 @@
-from flask import request, jsonify
-from Data import database as db
+from Contacts.Controllers.contact_controller import ContactController
+
+controller = ContactController()
 
 
-def get_contacts():
-    results = db.query_db("select * from contacts")
-    return jsonify({"data": results})
+def all_contacts():
+    return controller.get_all_contacts()
+
+
+def contact_by_id(id):
+    return controller.get_contact_by_id(id)
 
 
 def create_contact():
-    arguments = request.args
-    query = f"INSERT INTO contacts(first_name, last_name, email, phone) VALUES(?, ?, ?, ?)"
-    return {'': query}
+    return controller.create_contact()
+
+
+def update_contact():
+    pass
 
 
 def delete_contact(id: int):

@@ -1,8 +1,7 @@
 import sqlite3
-from flask import g
-from Infrastructure.constants import app, DATABASE
 
-path_schema = 'DB\\schema.sql'
+from flask import g
+from Infrastructure.constants import *
 
 
 def init_db():
@@ -37,6 +36,7 @@ def mutate_db(query, args=()):
     db = get_db()
     cur = db.execute(query, args)
     db.commit()
+    cur.close()
     return cur.lastrowid
 
 
