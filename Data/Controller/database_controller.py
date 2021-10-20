@@ -41,8 +41,9 @@ def build_update(table, columns, values):
 
 def build_update_by_id(table, columns, request):
     def patch(id):
-        sets = ",".join([f"{key} = ?" for key in request.form.keys() if key in columns])
-        values = [value for key, value in request.form.items() if key in columns]
+        sets = ",".join([f"{key} = ?" for key in request.json.keys() if key in columns])
+        # values = [value for key, value in request.form.items() if key in columns]
+        values = [request.json[key] for key in request.json.keys() if key in columns]
         mutate_db(f"UPDATE {table} SET {sets} WHERE id = ?", (*values, id,))
         return {"id": id}
 
