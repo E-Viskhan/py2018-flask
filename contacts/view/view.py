@@ -15,8 +15,12 @@ def create_contact():
     return controller.create_contact()
 
 
-def update_contact():
-    pass
+def update_contact(id):
+    return controller.update_contact(id)
+
+
+def update_contact_by_id(id):
+    return controller.update_contact_by_id(id)
 
 
 def delete_contact(id):

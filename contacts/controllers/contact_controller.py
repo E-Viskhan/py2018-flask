@@ -25,8 +25,12 @@ class ContactController:
         return build_delete(TABLE)(id)
 
     @staticmethod
+    def update_contact(id):
+        return build_update(TABLE, COLUMNS, [request.json[key] for key in COLUMNS])(id)
+
+    @staticmethod
     def update_contact_by_id(id):
-        pass
+        return build_update_by_id(TABLE, COLUMNS, request)(id)
 
     @staticmethod
     def delete_all_contacts(id):

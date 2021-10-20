@@ -9,6 +9,7 @@ def init_urls():
 
     # contacts urls register
     app.add_url_rule(routes['contacts'], view_func=contacts_view.all_contacts, methods=GET)
-    app.add_url_rule(build_path_with_args(routes['contacts'], '<int:id>'), view_func=contacts_view.contact_by_id, methods=GET)
     app.add_url_rule(routes['contacts'], view_func=contacts_view.create_contact, methods=POST)
-    app.add_url_rule(build_path_with_args(routes['contacts'], '<int:id>'), view_func=contacts_view.delete_contact, methods=DELETE)
+    app.add_url_rule('/contacts/<int:id>', view_func=contacts_view.update_contact, methods=PUT)
+    app.add_url_rule('/contacts/<int:id>', view_func=contacts_view.update_contact_by_id, methods=PATCH)
+    app.add_url_rule('/contacts/<int:id>', view_func=contacts_view.delete_contact, methods=DELETE)
