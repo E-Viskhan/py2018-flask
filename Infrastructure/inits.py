@@ -1,6 +1,6 @@
-from Infrastructure.methods_name import *
-from Infrastructure.constants import *
-from Infrastructure.routes import routes
+from infrastructure.methods_name import *
+from infrastructure.constants import *
+from infrastructure.routes import routes
 
 from contacts.view import view as contacts_view
 

@@ -1,6 +1,6 @@
 from flask import request
 
-from Data.Controller.DatabaseController import *
+from data.controller.database_controller import *
 
 TABLE = 'contacts'
 COLUMNS = ['first_name', 'last_name', 'email', 'phone']

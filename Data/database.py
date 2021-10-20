@@ -1,7 +1,7 @@
 import sqlite3
 
 from flask import g
-from Infrastructure.constants import *
+from infrastructure.constants import *
 
 
 schema_paths = []
