@@ -18,7 +18,7 @@ class ContactController:
 
     @staticmethod
     def create_contact():
-        return build_create(TABLE, COLUMNS, [request.json[key] for key in COLUMNS])
+        return build_create(TABLE, COLUMNS, [request.json[key] for key in COLUMNS])()
 
     @staticmethod
     def delete_contact_by_id(id):

@@ -10,7 +10,7 @@ def build_create(table, columns, data):
 
         return {"id": id}
 
-    return create()
+    return create
 
 
 def build_get_all(table):
