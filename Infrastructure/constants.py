@@ -2,7 +2,7 @@ from flask import Flask
 
 app = Flask(__name__)
 
-DATABASE = 'C:\\Users\\zelim\\Code\\recreational\\pi2018-python2\\database.sqlite'
+DATABASE = 'database.sqlite'
 
 
 def build_path_with_args(route_name: str, *args):

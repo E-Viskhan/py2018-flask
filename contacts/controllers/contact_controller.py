@@ -16,12 +16,13 @@ class ContactController:
     def get_contact_by_id(id):
         return build_get_by_id(TABLE)(id)
 
-    def create_contact(self):
+    @staticmethod
+    def create_contact():
         return build_create(TABLE, COLUMNS, [request.json[key] for key in COLUMNS])
 
     @staticmethod
     def delete_contact_by_id(id):
-        pass
+        return build_delete(TABLE)(id)
 
     @staticmethod
     def update_contact_by_id(id):

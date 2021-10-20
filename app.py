@@ -8,4 +8,4 @@ if __name__ == '__main__':
     db.schema_paths.append(contacts_schema_path)
     db.init_db()
     init_urls()
-    app.run(debug=True, port=3000)
+    app.run(debug=True, port=5000)

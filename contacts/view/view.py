@@ -19,5 +19,5 @@ def update_contact():
     pass
 
 
-def delete_contact(id: int):
-    return {'': 'log'}
+def delete_contact(id):
+    return controller.delete_contact_by_id(id)
