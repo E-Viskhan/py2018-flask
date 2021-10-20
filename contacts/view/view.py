@@ -1,4 +1,4 @@
-from Contacts.Controllers.contact_controller import ContactController
+from contacts.controllers.contact_controller import ContactController
 
 controller = ContactController()
 

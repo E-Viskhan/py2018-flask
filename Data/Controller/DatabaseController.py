@@ -18,7 +18,7 @@ def build_get_all(table):
         items = query_db(f'SELECT * FROM {table}')
         return {"data": items}
 
-    return get_all()
+    return get_all
 
 
 def build_get_by_id(table):
