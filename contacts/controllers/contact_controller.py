@@ -1,37 +1,35 @@
-from flask import request
-
-from data.controller.database_controller import *
+from infrastructure.base_controller import BaseController
 
 TABLE = 'contacts'
 COLUMNS = ['first_name', 'last_name', 'email', 'phone']
 
 
-class ContactController:
+class ContactController(BaseController):
 
-    @staticmethod
-    def get_all_contacts():
-        return build_get_all(TABLE)()
+    @classmethod
+    def get_all_contacts(cls):
+        return super().get_all(TABLE)
 
-    @staticmethod
-    def get_contact_by_id(id):
-        return build_get_by_id(TABLE)(id)
+    @classmethod
+    def get_contact_by_id(cls, id):
+        return super().get_by_id(TABLE, id)
 
-    @staticmethod
-    def create_contact():
-        return build_create(TABLE, COLUMNS, [request.json[key] for key in COLUMNS])()
+    @classmethod
+    def create_contact(cls):
+        return super().create(TABLE, COLUMNS)
 
-    @staticmethod
-    def delete_contact_by_id(id):
-        return build_delete(TABLE)(id)
+    @classmethod
+    def delete_contact_by_id(cls, id):
+        return super().delete_by_id(TABLE, id)
 
-    @staticmethod
-    def update_contact(id):
-        return build_update(TABLE, COLUMNS, [request.json[key] for key in COLUMNS])(id)
+    @classmethod
+    def replace_contact(cls, id):
+        return super().replace(TABLE, COLUMNS, id)
 
-    @staticmethod
-    def update_contact_by_id(id):
-        return build_update_by_id(TABLE, COLUMNS, request)(id)
+    @classmethod
+    def update_contact(cls, id):
+        return super().update(TABLE, COLUMNS, id)
 
-    @staticmethod
-    def delete_all_contacts(id):
+    @classmethod
+    def delete_all_contacts(cls, id):
         pass
