@@ -24,11 +24,11 @@ class ContactController(BaseController):
 
     @classmethod
     def replace_contact(cls, id):
-        return super().replace(TABLE, COLUMNS, id)
+        return super().replace_by_id(TABLE, COLUMNS, id)
 
     @classmethod
     def update_contact(cls, id):
-        return super().update(TABLE, COLUMNS, id)
+        return super().update_by_id(TABLE, COLUMNS, id)
 
     @classmethod
     def delete_all_contacts(cls, id):
