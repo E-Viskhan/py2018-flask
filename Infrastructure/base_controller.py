@@ -1,5 +1,5 @@
 from flask import request
-from Data.controller.database_controller import *
+from data.controller.database_controller import *
 
 
 class BaseController:

@@ -1,6 +1,6 @@
 from infrastructure.constants import app
 from infrastructure.router import init_urls
-from Data import database as db
+from data import database as db
 
 from contacts.schema.schema import schema_path as contacts_schema_path
 

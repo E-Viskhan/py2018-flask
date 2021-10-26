@@ -1,5 +1,5 @@
 from flask import jsonify
-from Data.database import query_db, mutate_db
+from data.database import query_db, mutate_db
 
 
 def build_create(table, columns, data):
