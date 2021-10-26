@@ -1,5 +1,5 @@
 from flask import request
-from data.controller.database_controller import *
+from Data.controller.database_controller import *
 
 
 class BaseController:
@@ -21,12 +21,12 @@ class BaseController:
         return build_delete(table)(id)
 
     @classmethod
-    def replace(cls, table, columns, id):
+    def replace_by_id(cls, table, columns, id):
         """PUT"""
         return build_replace(table, columns, [request.json[key] for key in columns])(id)
 
     @classmethod
-    def update(cls, table, columns, id):
+    def update_by_id(cls, table, columns, id):
         """PATCH"""
         return build_update(table, columns, request)(id)
 
