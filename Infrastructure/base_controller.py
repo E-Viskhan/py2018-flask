@@ -1,8 +1,10 @@
+import abc
+
 from flask import request
 from data.controller.database_controller import *
 
 
-class BaseController:
+class BaseController(abc.ABC):
 
     @classmethod
     def get_all(cls, table):

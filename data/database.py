@@ -23,23 +23,31 @@ def make_dicts(cursor, row):
 def get_db():
     db = getattr(g, '_database', None)
     if db is None:
-        db = g._database = sqlite3.connect(DATABASE)
+        db = g._database = sqlite3.connect(DATABASE, check_same_thread=False)
         db.row_factory = make_dicts
     return db
 
 
 def query_db(query, args=(), one=False):
-    cur = get_db().execute(query, args)
-    rv = cur.fetchall()
-    cur.close()
+    cur = None
+    try:
+        cur = get_db().execute(query, args)
+        rv = cur.fetchall()
+    finally:
+        if cur:
+            cur.close()
     return (rv[0] if rv else None) if one else rv
 
 
 def mutate_db(query, args=()):
-    db = get_db()
-    cur = db.execute(query, args)
-    db.commit()
-    cur.close()
+    cur = None
+    try:
+        db = get_db()
+        cur = db.execute(query, args)
+        db.commit()
+    finally:
+        if cur:
+            cur.close()
     return cur.lastrowid
 
 
