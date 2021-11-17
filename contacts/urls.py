@@ -10,10 +10,10 @@ class Url:
 
 
 urls = [
-    Url('/contacts', ContactController.get_all_contacts, GET),
-    Url('/contacts/<int:id>', ContactController.get_contact_by_id, GET),
-    Url('/contacts', ContactController.create_contact, POST),
-    Url('/contacts/<int:id>', ContactController.replace_contact, PUT),
-    Url('/contacts/<int:id>', ContactController.update_contact, PATCH),
-    Url('/contacts/<int:id>', ContactController.delete_contact_by_id, DELETE),
+    Url('/contacts', ContactController.get_all_contacts, [GET]),
+    Url('/contacts/<int:id>', ContactController.get_contact_by_id, [GET]),
+    Url('/contacts', ContactController.create_contact, [POST]),
+    Url('/contacts/<int:id>', ContactController.replace_contact, [PUT]),
+    Url('/contacts/<int:id>', ContactController.update_contact, [PATCH]),
+    Url('/contacts/<int:id>', ContactController.delete_contact_by_id, [DELETE]),
 ]
