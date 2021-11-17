@@ -5,32 +5,34 @@ from data.controller.database_controller import *
 
 
 class BaseController(abc.ABC):
+    TABLE = None
+    COLUMNS = None
 
     @classmethod
-    def get_all(cls, table):
-        return build_get_all(table)()
+    def get_all(cls):
+        return build_get_all(cls.TABLE)()
 
     @classmethod
-    def get_by_id(cls, table, id):
-        return build_get_by_id(table)(id)
+    def get_by_id(cls, id):
+        return build_get_by_id(cls.TABLE)(id)
 
     @classmethod
-    def create(cls, table, columns):
-        return build_create(table, columns, [request.json[key] for key in columns])()
+    def create(cls):
+        return build_create(cls.TABLE, cls.COLUMNS, [request.json[key] for key in cls.COLUMNS])()
 
     @classmethod
-    def delete_by_id(cls, table, id):
-        return build_delete(table)(id)
+    def delete_by_id(cls, id):
+        return build_delete(cls.TABLE)(id)
 
     @classmethod
-    def replace_by_id(cls, table, columns, id):
+    def replace_by_id(cls, id):
         """PUT"""
-        return build_replace(table, columns, [request.json[key] for key in columns])(id)
+        return build_replace(cls.TABLE, cls.COLUMNS, [request.json[key] for key in cls.COLUMNS])(id)
 
     @classmethod
-    def update_by_id(cls, table, columns, id):
+    def update_by_id(cls, id):
         """PATCH"""
-        return build_update(table, columns, request)(id)
+        return build_update(cls.TABLE, cls.COLUMNS, request)(id)
 
     @classmethod
     def delete_all(cls, id):
